@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #f5f5f5;
+    background-color: #f9ebfa;
 }
 
 header {
@@ -14,8 +14,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: linear-gradient(to right, #000000, #FFD700); /* Degradê de preto para amarelo */
-    color: white;
+    background: linear-gradient(to right, #8604a7, #f78113); /* Degradê de roxo para laranja */
+    color: #fcf2d7;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -40,7 +40,7 @@ header {
 
 .menu ul li a {
     text-decoration: none;
-    color: white;
+    color: #fcf2d7;
     font-size: 1rem;
     transition: color 0.3s ease;
 }
@@ -63,7 +63,7 @@ main {
 }
 
 .product-card {
-    background-color: white;
+    background-color: #faf9f5;
     border-radius: 8px;
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -89,7 +89,7 @@ main {
 
 .price {
     font-size: 1.25rem;
-    color: #2ecc71;
+    color: #000000;
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
@@ -101,7 +101,7 @@ main {
 }
 
 button {
-    background-color: #2ecc71;
+    background-color: #732f88;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -112,7 +112,7 @@ button {
 }
 
 button:hover {
-    background-color: #27ae60;
+    background-color: #4e0166;
 }
 
 /* Modal Styles */
@@ -194,9 +194,10 @@ quantity-selector input {
 }
 
 footer {
-    background-color: #333;
+    background:linear-gradient(to right, #8604a7, #f78113 );
     color: white;
     text-align: center;
+
     padding: 1rem;
     position: fixed;
     bottom: 0;
@@ -261,12 +262,12 @@ footer {
 }
 
 .cart-actions button:first-child {
-    background-color: #f0f0f0;
+    background-color: #e4b5ff;
     color: #333;
 }
 
 .cart-actions button:last-child {
-    background-color: #007bff;
+    background-color: #ffa845;
     color: #fff;
 }
 
