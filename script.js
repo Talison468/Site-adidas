@@ -18,6 +18,7 @@ function openModal(productId, productName, productPrice, productDescription, pro
 function closeModal() {
     document.getElementById('quantity-modal').style.display = 'none';
 }
+
 function proceedToPayment() {
     showToast('Redirecionando para a página de pagamento...');
     // Aqui você pode adicionar lógica para redirecionar para a página de pagamento real
@@ -53,8 +54,10 @@ function addToCart() {
         // Atualizar a quantidade se o produto já estiver no carrinho
         existingProduct.quantity += productQuantity;
     } else {
-        // Adicionar novo produto ao carrinho
+        // Adicionar novo produto ao carrinho com unique id
+        const newId = cart.length > 0 ? Math.max(...cart.map(item => item.id || 0)) + 1 : 1;
         cart.push({
+            id: newId,
             name: productName,
             price: productPrice,
             quantity: productQuantity,
@@ -73,6 +76,9 @@ function addToCart() {
 
     // Abrir o carrinho
     openCart();
+
+    // Salvar o carrinho no localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 function updateCartCount() {
@@ -88,37 +94,44 @@ function formatPrice(price) {
     });
 }
 
-function updateCartDisplay() {
-    const cartItems = document.getElementById('cart-items');
-    const cartTotal = document.getElementById('cart-total');
-    
-    cartItems.innerHTML = '';
-    let total = 0;
+function updateCartUI() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total');
 
+    // Limpar o conteúdo atual do carrinho
+    cartItemsContainer.innerHTML = '';
+
+    // Atualizar os itens do carrinho
+    let total = 0;
     cart.forEach(item => {
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
-
-        const itemElement = document.createElement('div');
-        itemElement.className = 'cart-item';
-        itemElement.innerHTML = `
-            <h4>${item.name}</h4>
-            <p>Quantidade: ${item.quantity}</p>
-            <p>Preço unitário: ${formatPrice(item.price)}</p>
-            <p>Subtotal: ${formatPrice(itemTotal)}</p>
-            <button onclick="removeFromCart(${item.id})">Remover</button>
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+            <div class="cart-item-details">
+                <h4>${item.name}</h4>
+                <p>Quantidade: ${item.quantity}</p>
+                <p>Preço unitário: ${formatPrice(item.price)}</p>
+                <p>Subtotal: ${formatPrice(itemTotal)}</p>
+                <button onclick="removeFromCart(${item.id})">Remover</button>
+            </div>
         `;
-        cartItems.appendChild(itemElement);
+        cartItemsContainer.appendChild(cartItem);
     });
 
-    cartTotal.textContent = formatPrice(total);
+    cartTotalElement.textContent = formatPrice(total);
 }
 
 function removeFromCart(productId) {
+    // Remover o item do carrinho pelo id
     cart = cart.filter(item => item.id !== productId);
+    // Atualizar localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
+    // Atualizar contador e UI
     updateCartCount();
-    updateCartDisplay();
+    updateCartUI();
 }
 
 function toggleCart() {
@@ -135,11 +148,11 @@ function toggleCart() {
 document.addEventListener('click', (e) => {
     const cartPanel = document.getElementById('shopping-cart');
     const cartIcon = document.querySelector('.cart-icon');
-    
-    if (cartPanel.classList.contains('active') && 
-        !cartPanel.contains(e.target) && 
+
+    if (cartPanel.style.display === 'block' &&
+        !cartPanel.contains(e.target) &&
         !cartIcon.contains(e.target)) {
-        cartPanel.classList.remove('active');
+        cartPanel.style.display = 'none';
     }
 });
 
@@ -153,38 +166,9 @@ window.onclick = function(event) {
 
 // Inicializar o carrinho ao carregar a página
 document.addEventListener('DOMContentLoaded', () => {
-    updateCartDisplay();
+    updateCartUI();
+    updateCartCount();
 });
-
-function updateCartUI() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    const cartTotalElement = document.getElementById('cart-total');
-
-    // Limpar o conteúdo atual do carrinho
-    cartItemsContainer.innerHTML = '';
-
-    // Atualizar os itens do carrinho
-    let total = 0;
-    cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-
-        const cartItem = document.createElement('div');
-        cartItem.classList.add('cart-item');
-        cartItem.innerHTML = `
-            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
-            <div class="cart-item-details">
-                <h4>${item.name}</h4>
-                <p>Quantidade: ${item.quantity}</p>
-                <p>Preço: R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
-            </div>
-        `;
-        cartItemsContainer.appendChild(cartItem);
-    });
-
-    // Atualizar o total do carrinho
-    cartTotalElement.textContent = total.toFixed(2).replace('.', ',');
-}
 
 function openCart() {
     const cartPanel = document.getElementById('shopping-cart');
@@ -218,8 +202,8 @@ function openPaymentModal() {
                 <div>
                     <h4>${item.name}</h4>
                     <p>Quantidade: ${item.quantity}</p>
-                    <p>Preço unitário: R$ ${item.price.toFixed(2).replace('.', ',')}</p>
-                    <p>Subtotal: R$ ${itemTotal.toFixed(2).replace('.', ',')}</p>
+                    <p>Preço unitário: ${formatPrice(item.price)}</p>
+                    <p>Subtotal: ${formatPrice(itemTotal)}</p>
                 </div>
             </div>
         `;
@@ -227,7 +211,7 @@ function openPaymentModal() {
     });
 
     // Atualizar o total no modal de pagamento
-    paymentTotalElement.textContent = total.toFixed(2).replace('.', ',');
+    paymentTotalElement.textContent = formatPrice(total);
 
     // Exibir o modal de pagamento
     paymentModal.style.display = 'block';
@@ -236,12 +220,6 @@ function openPaymentModal() {
 function closePaymentModal() {
     const paymentModal = document.getElementById('payment-modal');
     paymentModal.style.display = 'none';
-}
-
-function proceedToPayment() {
-    showToast('Redirecionando para a página de pagamento...');
-    // Aqui você pode redirecionar para uma página de pagamento real
-    closePaymentModal();
 }
 
 function showToast(message) {

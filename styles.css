@@ -318,3 +318,17 @@ footer {
     visibility: visible;
     opacity: 1;
 }
+
+.remove-button {
+    background-color: #e94533;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+    background-color: #b63425;
+}
