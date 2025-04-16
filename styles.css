@@ -46,7 +46,7 @@ header {
 }
 
 .menu ul li a:hover {
-    color: #27ae60; /* Cor verde ao passar o mouse */
+    color: #4e0166; /* Cor verde ao passar o mouse */
 }
 
 main {
@@ -331,4 +331,75 @@ footer {
 
 .remove-button:hover {
     background-color: #b63425;
+}
+
+/* Estilo para a página Sobre */
+header h1 {
+    text-align: center;
+    color: #ff7f43;
+}
+
+main section {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para o formulário de contato */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #ff7f43;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #e5672f;
+}
+
+.btn-whatsapp,.btn-whatsapp{
+ display: inline-block;
+ padding: 10px 20px;
+ margin: 10px;
+ border-radius:5px;
+ text-decoration:none;
+ color:#fff;
+ font-weight:bold;
+ font-family:sans-serif;
+ transition:background-color 0.3s ease, transform 0.2s;
+}
+.btn-whatsapp{
+    background-color:#e5672f;
+}
+.btn-instagram {
+    background-color:#000;
+}
+
+.btn-whatsapp:hover,
+.btn-instagram:hover{
+    transform:scale(1.05);
+    opacity: 0.9;
 }

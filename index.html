@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Bikes Store</title>
+    <title>Adidas Store</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
 </head>
 <body>
-    <header>
+        <header>
         <div class="logo">
             <h1>Adidas</h1>
         </div>
         <nav class="menu">
             <ul>
-                <li><a href="#products">Produtos</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#contact">Contato</a></li>
+                <li><a href="index.html">Produtos</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
             </ul>
         </nav>
         <div class="cart-icon" onclick="toggleCart()">
@@ -27,6 +27,36 @@
   
     </header>
     <main>
+
+        <div style="text-align: center; margin-top: 20px;"> 
+            <h2 style="color: #ff7f43;">Lançamentos</h2>
+        </div>
+
+        <section class="products">
+            <div class="product-card">
+                <img src="imagens/adidaslancamento.jpg" alt="Tênis adidas Ultraboost 5 Masculino">
+                <h3>Tênis adidas Ultraboost 5 Masculino</h3>
+                <p class="price">R$ 850,00</p>
+                <p class="description">Solado Borracha, Amortecimento Estabilidade, Têxtil Reforço acolchoado </p>
+                <button onclick="openModal(1, 'Tênis adidas Ultraboost 5 Masculino', 850.00, 'Solado Borracha, Amortecimento Estabilidade, Têxtil Reforço acolchoado', 'imagens/adidaslancamento.jpg')">Adicionar ao Carrinho</button>
+            </div>
+         
+            <div class="product-card">
+                <img src="imagens/adidaslancamento4.jpg" alt="Tênis Adidas X_PLR">
+                <h3>Tênis Adidas X_PLR</h3>
+                <p class="price">R$ 350,00</p>
+                <p class="description">Seja para aventurar-se pelas ruas da cidade ou dar um rolê pelo bairro. Solado: Borracha Pisada: Neutra.</p>
+                <button onclick="openModal(2, 'Tênis Adidas X_PLR', 350.00, 'Seja para aventurar-se pelas ruas da cidade ou dar um rolê pelo bairro. Solado: Borracha Pisada: Neutra.', 'imagens/adidaslancamento4.jpg')">Adicionar ao Carrinho</button>
+            </div>
+
+            <div class="product-card">
+                <img src="imagens/adidaslancamento5.jpg" alt="Tênis Adidas XPLR Path">
+                <h3>Tênis Adidas XPLR Path</h3>
+                <p class="price">R$ 400,00</p>
+                <p class="description">O Tênis Adidas XPLR Path é a escolha ideal para academia e treino. Oferece suporte e amortecimento.</p>
+                <button onclick="openModal(3, 'Tênis Adidas XPLR Path', 400.00, 'O Tênis Adidas XPLR Path é a escolha ideal para academia e treino. Oferece suporte e amortecimento.', 'imagens/adidaslancamento5.jpg')">Adicionar ao Carrinho</button>
+            </div>
+        </section>
 
         <div style="text-align: center; margin-top: 20px;"> 
             <h2 style="color: #ff7f43;">Seção Masculina</h2>
@@ -46,20 +76,20 @@
                 <h3>Tênis Adidas UltraBoost 22</h3>
                 <p class="price">R$ 600,00</p>
                 <p class="description">Indicado para: Dia a Dia, Academia e Corrida, terreno: Rua ou Esteira, material: Têxtil e Sintético.</p>
-                <button onclick="openModal(2, 'Tênis Adidas UltraBoost 22', 600.00, 'Indicado para: Dia a Dia, Academia e Corrida, terreno: Rua ou Esteira, material: Têxtil e Sintético.', '//runningspeed.com.br/app/media/images_product/medium/125701487/125701487144447-tenis-adidas-ultraboost-22-branco-e-azul-masculino-8.jpg')">Adicionar ao Carrinho</button>
+                <button onclick="openModal(2, 'Tênis Adidas UltraBoost 22', 600.00, 'Indicado para: Dia a Dia, Academia e Corrida, terreno: Rua ou Esteira, material: Têxtil e Sintético.', 'imagens/adidas2.jpg')">Adicionar ao Carrinho</button>
             </div>
 
             <div class="product-card">
                 <img src="imagens/adidas3.jpg" alt="Tênis Adidas UltraBoost 20">
                 <h3>Tênis Adidas UltraBoost 20</h3>
                 <p class="price">R$ 550,00</p>
-                <p class="description">Maciez, Amortecimento Elástico. Independente Da Temperatura, Ela Traz Mais Eficiência E Conforto Na Sua Corrida.</p>
-                <button onclick="openModal(3, 'Tênis Adidas UltraBoost 20', 550.00, 'Maciez, Amortecimento Elástico. Independente Da Temperatura, Ela Traz Mais Eficiência E Conforto Na Sua Corrida.', '//teniscorrida.com.br/app/media/images_product/medium/154506401/838ba1abff.jpg')">Adicionar ao Carrinho</button>
+                <p class="description">Maciez, Amortecimento Elástico. Independente Da Temperatura, Ela Traz Mais Eficiência E Conforto.</p>
+                <button onclick="openModal(3, 'Tênis Adidas UltraBoost 20', 550.00, 'Maciez, Amortecimento Elástico. Independente Da Temperatura, Ela Traz Mais Eficiência E Conforto Na Sua Corrida.', 'imagens/adidas3.jpg')">Adicionar ao Carrinho</button>
             </div>
         </section>
 
         <div style="text-align: center; margin-top: 20px;">
-        <H2 style="color: #ff7f43;">Seção feminino</H2>
+        <H2 style="color: #ff7f43;">Seção feminina</H2>
         </div>
 
         <section class="products">
@@ -68,23 +98,23 @@
                 <h3>Tênis Adidas UltraBoost 22 feminino</h3>
                 <p class="price">R$ 600,00</p>
                 <p class="description">Indicado para: Dia a Dia, Academia e Corrida. Terreno: Rua ou Esteira Material: Têxtil e Sintético</p>
-                <button onclick="openModal(1, 'Tênis Adidas UltraBoost 22 feminino', 600.00, 'Indicado para: Dia a Dia, Academia e Corrida. Terreno: Rua ou Esteira Material: Têxtil e Sintético', '//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYaFKzjEvdq61BRgj1qPCeYEPRvxZCqhS4kw&s')">Adicionar ao Carrinho</button>
+                <button onclick="openModal(1, 'Tênis Adidas UltraBoost 22 feminino', 600.00, 'Indicado para: Dia a Dia, Academia e Corrida. Terreno: Rua ou Esteira Material: Têxtil e Sintético', 'imagens/adidasf.jpg')">Adicionar ao Carrinho</button>
             </div>
          
             <div class="product-card">
                 <img src="imagens/adidasf2.jpg" alt="Tênis Feminino Adidas Runfalcon">
-                <h3>Tênis Feminino Adidas Runfalcon</h3>
+                <h3>Tênis Adidas Feminino Runfalcon</h3>
                 <p class="price">R$ 400,00</p>
-                <p class="description">Indicado para treinos leves de corrida, Dia-Dia, academia ou até mesmo nas atividades casuais.</p>
-                <button onclick="openModal(2, 'Tênis Feminino Adidas Runfalcon 3.0', 400.00, 'Indicado para treinos leves de corrida, Dia-Dia, academia ou até mesmo nas atividades casuais.', '//cdn.awsli.com.br/300x300/2498/2498396/produto/209711394/mp0000072379_01-ebnyon.jpg')">Adicionar ao Carrinho</button>
+                <p class="description">Indicado para treinos leves de corrida, Dia-Dia, academia ou até mesmo nas atividades casuais. Terreno: Rua ou Esteira Material: Têxtil e Sintético</p>
+                <button onclick="openModal(2, 'Tênis Feminino Adidas Runfalcon 3.0', 400.00, 'Indicado para treinos leves de corrida, Dia-Dia, academia ou até mesmo nas atividades casuais.', 'imagens/adidasf2.jpg')">Adicionar ao Carrinho</button>
             </div>
 
             <div class="product-card">
                 <img src="imagens/adidasf3.jpg" alt="Tênis Adidas UltraBoost 21">
-                <h3>Tênis Adidas UltraBoost 21</h3>
+                <h3>Tênis Adidas UltraBoost 21 feminino</h3>
                 <p class="price">R$ 620,00</p>
-                <p class="description">Maciez, Amortecimento Elástico. Independente Da Temperatura, Ela Traz Mais Eficiência E Conforto Na Sua Corrida.</p>
-                <button onclick="openModal(3, 'Tênis Adidas UltraBoost 21', 620.00, 'Maciez, Amortecimento Elástico. Independente Da Temperatura, Ela Traz Mais Eficiência E Conforto Na Sua Corrida.', '//encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGeitptKASRGkUm_qNU_nqYIZS41vwOs8aoA&s')">Adicionar ao Carrinho</button>
+                <p class="description">Maciez, Amortecimento Elástico. Independente Da Temperatura, Ela Traz Mais Eficiência E Conforto.</p>
+                <button onclick="openModal(3, 'Tênis Adidas UltraBoost 21', 620.00, 'Maciez, Amortecimento Elástico. Independente Da Temperatura, Ela Traz Mais Eficiência E Conforto Na Sua Corrida.', 'imagens/adidasf3.jpg')">Adicionar ao Carrinho</button>
             </div> 
         </section>
 
